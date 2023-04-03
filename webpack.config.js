@@ -1,15 +1,20 @@
-const { shareAll, withModuleFederationPlugin } = require('@angular-architects/module-federation/webpack');
+const {
+  shareAll,
+  withModuleFederationPlugin,
+} = require("@angular-architects/module-federation/webpack");
 
 module.exports = withModuleFederationPlugin({
-
-  name: 'simple-mfe',
+  name: "simple-mfe",
 
   exposes: {
-    './Component': './src/app/app.component.ts',
+    "./SimpleModuleModule": "./src/app/simple-module/simple-module.module",
   },
 
   shared: {
-    ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
+    ...shareAll({
+      singleton: true,
+      strictVersion: true,
+      requiredVersion: "auto",
+    }),
   },
-
 });
